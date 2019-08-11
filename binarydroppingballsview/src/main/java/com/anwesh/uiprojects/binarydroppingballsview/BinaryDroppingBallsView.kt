@@ -183,4 +183,26 @@ class BinaryDroppingBallsView(ctx : Context) : View(ctx)  {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BinaryDroppingBallsView) {
+
+        private val bdb : BinaryDroppingBalls = BinaryDroppingBalls(0)
+        private var animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            bdb.draw(canvas, paint)
+            animator.animate {
+                bdb.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bdb.startUpdating {
+                animator.stop()
+            }
+        }
+    }
 }
