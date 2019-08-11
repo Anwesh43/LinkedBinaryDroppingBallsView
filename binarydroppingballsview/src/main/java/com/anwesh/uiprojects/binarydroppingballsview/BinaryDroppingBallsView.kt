@@ -206,4 +206,13 @@ class BinaryDroppingBallsView(ctx : Context) : View(ctx)  {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BinaryDroppingBallsView {
+            val view : BinaryDroppingBallsView = BinaryDroppingBallsView(activity)
+            activity.setContentView(view)
+            return view 
+        }
+    }
 }
