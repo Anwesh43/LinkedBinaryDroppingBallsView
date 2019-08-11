@@ -202,7 +202,7 @@ class BinaryDroppingBallsView(ctx : Context) : View(ctx)  {
 
         fun handleTap() {
             bdb.startUpdating {
-                animator.stop()
+                animator.start()
             }
         }
     }
@@ -212,7 +212,7 @@ class BinaryDroppingBallsView(ctx : Context) : View(ctx)  {
         fun create(activity : Activity) : BinaryDroppingBallsView {
             val view : BinaryDroppingBallsView = BinaryDroppingBallsView(activity)
             activity.setContentView(view)
-            return view 
+            return view
         }
     }
 }
